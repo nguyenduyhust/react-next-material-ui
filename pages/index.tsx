@@ -9,7 +9,9 @@ Home.getInitialProps = ({ req, reduxStore }: any) => {
   const { dispatch } = reduxStore;
   dispatch(AppActions.detectMobile(userAgent));
 
-  return {};
+  return {
+    title: 'Homepage'
+  };
 };
 
 export default compose(
