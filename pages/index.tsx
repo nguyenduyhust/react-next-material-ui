@@ -1,19 +1,22 @@
-import { compose } from 'redux';
-import { withRedux } from '../hocs/redux';
+import { GetServerSideProps } from 'next';
 import * as AppActions from '../redux/actions/app-action';
+
+import { initializeStore } from '../hooks/redux';
 
 import Home from '../views/home';
 
-Home.getInitialProps = ({ req, reduxStore }: any) => {
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
+  const reduxStore = initializeStore();
   const { dispatch } = reduxStore;
   dispatch(AppActions.detectMobile(userAgent));
 
   return {
-    title: 'Homepage'
-  };
-};
+    props: {
+      title: 'Homepage',
+      initialReduxState: reduxStore.getState(),
+    }
+  }
+}
 
-export default compose(
-  withRedux,
-)(Home);
+export default Home;
