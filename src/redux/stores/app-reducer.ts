@@ -10,10 +10,7 @@ export const initialState: State = {
 };
 
 export const detectMobileReducer = AppActions.detectMobile.reducer<State>((state, action) => ({
-  isMobile: action.payload
+  isMobile: action.payload,
 }));
 
-export const reducer = createTypeReducer(
-  initialState,
-  detectMobileReducer,
-);
+export const reducer = createTypeReducer(initialState, detectMobileReducer);
