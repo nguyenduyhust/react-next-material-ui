@@ -1,4 +1,4 @@
-import { createTypeReducer } from 'type-redux';
+import { createTypeReducer } from '../type-redux';
 import * as AppActions from '../actions/app-action';
 
 export type State = {

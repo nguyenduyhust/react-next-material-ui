@@ -1,4 +1,4 @@
-import { createTypeAction } from 'type-redux';
+import { createTypeAction } from '../type-redux';
 
 import * as Utils from '../../utilities/system-utils';
 

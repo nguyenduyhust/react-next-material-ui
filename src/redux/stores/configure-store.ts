@@ -4,7 +4,7 @@ import {
   typePendingReducerSet,
   createTypeReduxInitialState,
   typeReduxMiddleware,
-} from 'type-redux';
+} from '../type-redux';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 
 import * as AppReducer from './app-reducer';
