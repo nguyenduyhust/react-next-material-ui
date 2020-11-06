@@ -20,12 +20,10 @@ const Homepage: NextPage<Props> = (props) => {
   const isMobile = useSelector((store: Store) => store.appState.isMobile);
   const classes = useStyles(props);
 
-  const func = () => {};
-
   return (
     <Container maxWidth="sm">
       <Box my={4}>
-        <Typography variant="h4" component="h1" gutterBottom onClick={func}>
+        <Typography variant="h4" component="h1" gutterBottom>
           HOME PAGE
         </Typography>
         <div className={classes.deviceLabel}>{isMobile ? 'Mobile' : 'Desktop'}</div>
