@@ -5,7 +5,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { AppProps } from 'next/app';
 
-import theme from '../themes/light-theme';
+import theme from '@styles/theme';
 import { useStore } from '@redux/with-redux';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
