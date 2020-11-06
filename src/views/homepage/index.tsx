@@ -3,12 +3,12 @@ import React from 'react';
 import { NextPage } from 'next';
 import { useSelector } from 'react-redux';
 // Component
-import { sIsMobile } from '@redux/selectors/app-selector';
+import { sIsMobile } from '@selectors/app.selector';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { GetServerSideProps } from 'next';
-import * as AppActions from '@actions/app-action';
+import * as AppActions from '@actions/app.action';
 import { initializeStore } from '@redux/with-redux';
 import { StyledComponentProps } from '@type/style';
 import { useStyles, styles } from './style';

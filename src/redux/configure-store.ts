@@ -7,7 +7,7 @@ import {
 } from './type-redux';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 
-import * as AppReducer from './reducers/app-reducer';
+import * as AppReducer from './reducers/app.reducer';
 
 export const rootReducer = combineReducers({
   ...typePendingReducerSet,

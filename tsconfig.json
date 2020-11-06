@@ -22,6 +22,7 @@
       "~/*": ["src/*"],
       "@views/*": ["src/views/*"],
       "@redux/*": ["src/redux/*"],
+      "@helpers/*": ["src/helpers/*"],
       "@type/*": ["src/types/*"],
       "@actions/*": ["src/redux/actions/*"],
       "@reducers/*": ["src/redux/reduces/*"],
