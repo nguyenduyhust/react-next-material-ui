@@ -3,21 +3,20 @@ import React from 'react';
 import { NextPage } from 'next';
 import { useSelector } from 'react-redux';
 // Component
-import { Store } from '../../redux/stores/configure-store';
+import { sIsMobile } from '@redux/selectors/app-selector';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { GetServerSideProps } from 'next';
-import * as AppActions from '../../redux/actions/app-action';
-
-import { initializeStore } from '../../hooks/redux';
-import { StyledComponentProps } from '../../types/style';
+import * as AppActions from '@actions/app-action';
+import { initializeStore } from '@redux/with-redux';
+import { StyledComponentProps } from '@type/style';
 import { useStyles, styles } from './style';
 
 interface Props extends StyledComponentProps<typeof styles> {}
 
 const Homepage: NextPage<Props> = (props) => {
-  const isMobile = useSelector((store: Store) => store.appState.isMobile);
+  const isMobile = useSelector(sIsMobile);
   const classes = useStyles(props);
 
   return (

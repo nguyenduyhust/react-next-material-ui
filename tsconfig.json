@@ -16,7 +16,17 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "baseUrl": "./",
+    "paths": {
+      "~/*": ["src/*"],
+      "@views/*": ["src/views/*"],
+      "@redux/*": ["src/redux/*"],
+      "@type/*": ["src/types/*"],
+      "@actions/*": ["src/redux/actions/*"],
+      "@reducers/*": ["src/redux/reduces/*"],
+      "@selectors/*": ["src/redux/selectors/*"],
+    }
   },
   "exclude": [
     "node_modules"
