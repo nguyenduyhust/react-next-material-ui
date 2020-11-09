@@ -28,6 +28,7 @@
       "@actions/*": ["src/redux/actions/*"],
       "@reducers/*": ["src/redux/reduces/*"],
       "@selectors/*": ["src/redux/selectors/*"],
+      "@i18n": ["src/i18n/index.js"],
     }
   },
   "exclude": [

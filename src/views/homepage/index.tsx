@@ -8,6 +8,7 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { GetServerSideProps } from 'next';
+import { useTranslation } from '@i18n';
 import * as AppActions from '@actions/app.action';
 import { initializeStore } from '@redux/with-redux';
 import { StyledComponentProps } from '@type/style';
@@ -18,14 +19,17 @@ interface Props extends StyledComponentProps<typeof styles> {}
 const Homepage: NextPage<Props> = (props) => {
   const isMobile = useSelector(sIsMobile);
   const classes = useStyles(props);
+  const { t } = useTranslation(['homepage', 'common']);
 
   return (
     <Container maxWidth="sm">
       <Box my={4}>
         <Typography variant="h4" component="h1" gutterBottom>
-          HOME PAGE
+          {t('homepage')}
         </Typography>
-        <div className={classes.deviceLabel}>{isMobile ? 'Mobile' : 'Desktop'}</div>
+        <div className={classes.deviceLabel}>
+          {isMobile ? t('common:mobile') : t('common:desktop')}
+        </div>
       </Box>
     </Container>
   );
