@@ -9,7 +9,7 @@ import theme from '@styles/theme';
 import { useStore } from '@redux/with-redux';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  const store = useStore(pageProps.initialReduxState);
+  const store = useStore(JSON.parse(pageProps.initialReduxState));
 
   useEffect(() => {
     // Remove the server-side injected CSS.

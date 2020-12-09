@@ -14,7 +14,7 @@ import { initializeStore } from '@redux/with-redux';
 import { StyledComponentProps } from '@type/style';
 import { useStyles, styles } from './style';
 
-interface Props extends StyledComponentProps<typeof styles> {}
+interface Props extends StyledComponentProps<typeof styles> { }
 
 const Homepage: NextPage<Props> = (props) => {
   const isMobile = useSelector(sIsMobile);
@@ -44,7 +44,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   return {
     props: {
       title: 'Homepage',
-      initialReduxState: reduxStore.getState(),
+      initialReduxState: JSON.stringify(reduxStore.getState()),
     },
   };
 };
