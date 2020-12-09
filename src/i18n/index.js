@@ -1,5 +1,6 @@
 const NextI18Next = require('next-i18next').default;
 const path = require('path');
+const moment = require('moment');
 
 module.exports = new NextI18Next({
   defaultLanguage: 'en',
@@ -14,4 +15,12 @@ module.exports = new NextI18Next({
     caches: ['cookie'],
   },
   localePath: path.resolve('public/static/locales'),
+  interpolation: {
+    format: function (value, format, lng) {
+      if (value instanceof Date) {
+        return moment(value).format(format);
+      }
+      return value;
+    },
+  },
 });
