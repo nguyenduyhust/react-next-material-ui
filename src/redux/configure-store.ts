@@ -1,4 +1,4 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware, Store as ReduxStore } from 'redux';
 import promiseMiddleware from 'redux-promise';
 import {
   typePendingReducerSet,
@@ -17,6 +17,8 @@ export const rootReducer = combineReducers({
 export interface RootState {
   appState: AppReducer.State;
 }
+
+export type Store = ReduxStore<RootState>;
 
 export const InitialState: RootState = Object.assign(createTypeReduxInitialState(), {
   appState: AppReducer.initialState,
