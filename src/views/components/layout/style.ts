@@ -1,8 +1,9 @@
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 
 const styles = (theme: Theme) => createStyles({
-  deviceLabel: {
-    color: theme.colors.toryBlue,
+  root: {},
+  content: {
+    paddingTop: theme.spacing(8),
   },
 });
 

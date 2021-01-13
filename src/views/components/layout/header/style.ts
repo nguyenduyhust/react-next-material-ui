@@ -1,9 +1,21 @@
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 
 const styles = (theme: Theme) => createStyles({
-  deviceLabel: {
-    color: theme.colors.toryBlue,
+  root: {
+
   },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  menuIcon: {
+    color: theme.colors.white,
+  },
+  title: {
+    marginRight: theme.spacing(2),
+  },
+  grow: {
+    flexGrow: 1,
+  }
 });
 
 const useStyles = makeStyles(styles);

@@ -1,3 +1,5 @@
 {
-  "homepage": "ホームページ"
+  "homepage": "ホームページ",
+  "page_title": "React Boilerplace",
+  "header_search_box_placeholder": "Search"
 }

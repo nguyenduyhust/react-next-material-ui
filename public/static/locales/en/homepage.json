@@ -1,3 +1,5 @@
 {
-  "homepage": "Home Page"
+  "homepage": "Home Page",
+  "page_title": "React Boilerplace",
+  "header_search_box_placeholder": "Search"
 }

@@ -1,13 +1,14 @@
 // lib
 import React from 'react';
-import { NextPage } from 'next';
+import { NextPage, GetServerSideProps } from 'next';
 import { useSelector } from 'react-redux';
 // Component
 import { sIsMobile } from '@selectors/app.selector';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import { GetServerSideProps } from 'next';
+import Layout from '@views/components/layout';
+
 import { useTranslation } from '@i18n';
 import * as AppActions from '@actions/app.action';
 import { initializeStore } from '@redux/with-redux';
@@ -22,16 +23,18 @@ const Homepage: NextPage<Props> = (props) => {
   const { t } = useTranslation(['homepage', 'common']);
 
   return (
-    <Container maxWidth="sm">
-      <Box my={4}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          {t('homepage')}
-        </Typography>
-        <div className={classes.deviceLabel}>
-          {isMobile ? t('common:mobile') : t('common:desktop')}
-        </div>
-      </Box>
-    </Container>
+    <Layout>
+      < Container maxWidth="sm" >
+        <Box my={4}>
+          <Typography variant="h4" component="h1" gutterBottom>
+            {t('homepage')}
+          </Typography>
+          <div className={classes.deviceLabel}>
+            {isMobile ? t('common:mobile') : t('common:desktop')}
+          </div>
+        </Box>
+      </Container >
+    </Layout>
   );
 };
 
