@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { AppProps } from 'next/app';
+import App, { AppProps, AppContext } from 'next/app';
 import { appWithTranslation } from '@i18n';
 import theme from '@styles/theme';
 import { useStore } from '@redux/with-redux';
@@ -34,6 +34,14 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       </ThemeProvider>
     </React.Fragment>
   );
+};
+
+MyApp.getInitialProps = async (appContext: AppContext) => {
+  const appProps = await App.getInitialProps(appContext);
+
+  return {
+    ...appProps,
+  };
 };
 
 export default appWithTranslation(MyApp);

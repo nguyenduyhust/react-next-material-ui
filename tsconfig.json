@@ -19,16 +19,36 @@
     "jsx": "preserve",
     "baseUrl": "./",
     "paths": {
-      "~/*": ["src/*"],
-      "@views/*": ["src/views/*"],
-      "@redux/*": ["src/redux/*"],
-      "@helpers/*": ["src/helpers/*"],
-      "@styles/*": ["src/styles/*"],
-      "@type/*": ["src/types/*"],
-      "@actions/*": ["src/redux/actions/*"],
-      "@reducers/*": ["src/redux/reduces/*"],
-      "@selectors/*": ["src/redux/selectors/*"],
-      "@i18n": ["src/i18n/index.js"],
+      "~/*": [
+        "src/*"
+      ],
+      "@views/*": [
+        "src/views/*"
+      ],
+      "@redux/*": [
+        "src/redux/*"
+      ],
+      "@helpers/*": [
+        "src/helpers/*"
+      ],
+      "@styles/*": [
+        "src/styles/*"
+      ],
+      "@type/*": [
+        "src/types/*"
+      ],
+      "@actions/*": [
+        "src/redux/actions/*"
+      ],
+      "@reducers/*": [
+        "src/redux/reduces/*"
+      ],
+      "@selectors/*": [
+        "src/redux/selectors/*"
+      ],
+      "@i18n": [
+        "src/i18n",
+      ],
     }
   },
   "exclude": [
