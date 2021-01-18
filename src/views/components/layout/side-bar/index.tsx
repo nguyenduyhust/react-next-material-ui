@@ -1,9 +1,9 @@
 import React from 'react';
-import { WithStyles } from '@material-ui/core/styles';
+import { StyledComponentProps } from '@type/material-ui';
 
 import { useStyles, styles } from './style';
 
-interface Props extends WithStyles<typeof styles> {
+interface Props extends StyledComponentProps<typeof styles> {
 
 }
 

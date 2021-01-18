@@ -2,7 +2,7 @@ import React from 'react';
 // Component
 import Header from './header';
 // type
-import { StyledComponentProps } from '@type/style';
+import { StyledComponentProps } from '@type/material-ui';
 // style
 import { useStyles, styles } from './style';
 

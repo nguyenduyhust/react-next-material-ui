@@ -12,7 +12,7 @@ import Layout from '@views/components/layout';
 import { useTranslation } from '@i18n';
 import * as AppActions from '@actions/app.action';
 import { initializeStore } from '@redux/with-redux';
-import { StyledComponentProps } from '@type/style';
+import { StyledComponentProps } from '@type/material-ui';
 import { useStyles, styles } from './style';
 
 interface Props extends StyledComponentProps<typeof styles> { }

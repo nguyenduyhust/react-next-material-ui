@@ -6,7 +6,7 @@ import SearchIcon from '@material-ui/icons/Search';
 // localization
 import { useTranslation } from '@i18n';
 // type
-import { StyledComponentProps } from '@type/style';
+import { StyledComponentProps } from '@type/material-ui';
 
 import { useStyles, styles } from './style';
 
