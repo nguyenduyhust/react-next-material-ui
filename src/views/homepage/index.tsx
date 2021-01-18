@@ -9,18 +9,19 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Layout from '@views/components/layout';
 
-import { useTranslation } from '@i18n';
+import { useTranslation, NamespaceEnum } from '@i18n';
 import * as AppActions from '@actions/app.action';
 import { initializeStore } from '@redux/with-redux';
 import { StyledComponentProps } from '@type/material-ui';
 import { useStyles, styles } from './style';
 
-interface Props extends StyledComponentProps<typeof styles> { }
+interface Props extends InitialProps, StyledComponentProps<typeof styles> { }
 
 const Homepage: NextPage<Props, InitialProps> = (props) => {
+  const { namespacesRequired } = props;
   const isMobile = useSelector(sIsMobile);
   const classes = useStyles(props);
-  const { t } = useTranslation(['homepage', 'common']);
+  const { t } = useTranslation(namespacesRequired);
 
   return (
     <Layout>
@@ -46,7 +47,7 @@ Homepage.getInitialProps = async ({ req }) => {
 
   return {
     title: 'Homepage',
-    namespacesRequired: ['homepage'],
+    namespacesRequired: [NamespaceEnum.COMMON, NamespaceEnum.HOME_PAGE],
     initialReduxState: JSON.stringify(reduxStore.getState()),
   };
 };

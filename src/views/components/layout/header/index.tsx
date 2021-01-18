@@ -10,7 +10,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import SearchBox from './search-box';
 // localization
-import { useTranslation } from '@i18n';
+import { useTranslation, NamespaceEnum } from '@i18n';
 // type
 import { StyledComponentProps } from '@type/material-ui';
 // style
@@ -19,7 +19,7 @@ import { useStyles, styles } from './style';
 interface Props extends StyledComponentProps<typeof styles> { }
 
 const Layout: React.FC<Props> = props => {
-  const { t } = useTranslation('homepage');
+  const { t } = useTranslation(NamespaceEnum.HOME_PAGE);
   const classes = useStyles(props);
 
   return (

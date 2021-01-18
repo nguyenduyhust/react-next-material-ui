@@ -1,8 +1,11 @@
-const NextI18Next = require('next-i18next').default;
-const path = require('path');
-const moment = require('moment');
+import NextI18Next from 'next-i18next';
+import path from 'path';
+import moment from 'moment';
+import { ns, defaultNS } from './ns';
 
-module.exports = new NextI18Next({
+const { Trans, Link, Router, i18n, initPromise, config, useTranslation, withTranslation, appWithTranslation } = new NextI18Next({
+  ns,
+  defaultNS,
   defaultLanguage: 'en',
   otherLanguages: ['ja'],
   browserLanguageDetection: true,
@@ -24,3 +27,16 @@ module.exports = new NextI18Next({
     },
   },
 });
+
+export {
+  Trans,
+  Link,
+  Router,
+  i18n,
+  initPromise,
+  config,
+  useTranslation,
+  withTranslation,
+  appWithTranslation,
+};
+export { NamespaceEnum } from './ns';
