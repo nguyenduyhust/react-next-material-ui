@@ -1,6 +1,6 @@
 // Add an empty 'export {}' statement to make this file a module
 import { Namespace } from 'react-i18next';
-export { };
+export {};
 
 declare module 'next/types' {
   interface InitialProps {

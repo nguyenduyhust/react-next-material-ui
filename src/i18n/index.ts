@@ -3,7 +3,17 @@ import path from 'path';
 import moment from 'moment';
 import { ns, defaultNS } from './ns';
 
-const { Trans, Link, Router, i18n, initPromise, config, useTranslation, withTranslation, appWithTranslation } = new NextI18Next({
+const {
+  Trans,
+  Link,
+  Router,
+  i18n,
+  initPromise,
+  config,
+  useTranslation,
+  withTranslation,
+  appWithTranslation,
+} = new NextI18Next({
   ns,
   defaultNS,
   defaultLanguage: 'en',

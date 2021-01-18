@@ -1,6 +1,12 @@
 import { createMuiTheme, Theme } from '@material-ui/core/styles';
 import { BLACK_COLOR, WHITE_COLOR, TORY_BLUE_COLOR, NAVY_BLUE_COLOR } from './colors';
-import { XS_BREAKPOINT, SM_BREAKPOINT, MD_BREAKPOINT, LG_BREAKPOINT, XL_BREAKPOINT } from './breakpoints';
+import {
+  XS_BREAKPOINT,
+  SM_BREAKPOINT,
+  MD_BREAKPOINT,
+  LG_BREAKPOINT,
+  XL_BREAKPOINT,
+} from './breakpoints';
 
 const theme: Theme = createMuiTheme({
   colors: {
@@ -22,7 +28,7 @@ const theme: Theme = createMuiTheme({
   palette: {
     primary: {
       main: NAVY_BLUE_COLOR,
-    }
+    },
   },
 });
 

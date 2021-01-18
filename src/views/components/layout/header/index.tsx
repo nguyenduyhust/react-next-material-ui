@@ -16,9 +16,9 @@ import { StyledComponentProps } from '@type/material-ui';
 // style
 import { useStyles, styles } from './style';
 
-interface Props extends StyledComponentProps<typeof styles> { }
+interface Props extends StyledComponentProps<typeof styles> {}
 
-const Layout: React.FC<Props> = props => {
+const Layout: React.FC<Props> = (props) => {
   const { t } = useTranslation(NamespaceEnum.HOME_PAGE);
   const classes = useStyles(props);
 
@@ -28,7 +28,9 @@ const Layout: React.FC<Props> = props => {
         <IconButton className={classes.menuButton}>
           <MenuIcon className={classes.menuIcon} />
         </IconButton>
-        <Typography variant="h6" className={classes.title}>{t('page_title')}</Typography>
+        <Typography variant="h6" className={classes.title}>
+          {t('page_title')}
+        </Typography>
         <SearchBox />
         <div className={classes.grow} />
         <div>

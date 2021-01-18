@@ -15,7 +15,7 @@ import { initializeStore } from '@redux/with-redux';
 import { StyledComponentProps } from '@type/material-ui';
 import { useStyles, styles } from './style';
 
-interface Props extends InitialProps, StyledComponentProps<typeof styles> { }
+interface Props extends InitialProps, StyledComponentProps<typeof styles> {}
 
 const Homepage: NextPage<Props, InitialProps> = (props) => {
   const { namespacesRequired } = props;
@@ -25,7 +25,7 @@ const Homepage: NextPage<Props, InitialProps> = (props) => {
 
   return (
     <Layout>
-      < Container maxWidth="sm" >
+      <Container maxWidth="sm">
         <Box my={4}>
           <Typography variant="h4" component="h1" gutterBottom>
             {t('homepage')}
@@ -34,7 +34,7 @@ const Homepage: NextPage<Props, InitialProps> = (props) => {
             {isMobile ? t('common:mobile') : t('common:desktop')}
           </div>
         </Box>
-      </Container >
+      </Container>
     </Layout>
   );
 };

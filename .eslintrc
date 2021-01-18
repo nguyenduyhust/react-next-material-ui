@@ -3,12 +3,15 @@
   "extends": [
     "plugin:@typescript-eslint/recommended"
   ],
-  "plugins": ["prettier"],
+  "plugins": [
+    "prettier"
+  ],
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
   "rules": {
+    "prettier/prettier": "error",
     "semi": [
       "error",
       "always"

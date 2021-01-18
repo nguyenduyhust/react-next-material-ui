@@ -6,18 +6,16 @@ import { StyledComponentProps } from '@type/material-ui';
 // style
 import { useStyles, styles } from './style';
 
-interface Props extends StyledComponentProps<typeof styles> { }
+interface Props extends StyledComponentProps<typeof styles> {}
 
-const Layout: React.FC<Props> = props => {
+const Layout: React.FC<Props> = (props) => {
   const { children } = props;
   const classes = useStyles(props);
 
   return (
     <div>
       <Header />
-      <div className={classes.content}>
-        {children}
-      </div>
+      <div className={classes.content}>{children}</div>
     </div>
   );
 };
