@@ -19,7 +19,7 @@ import { useStyles, styles } from './style';
 interface Props extends StyledComponentProps<typeof styles> {}
 
 const Layout: React.FC<Props> = (props) => {
-  const { t } = useTranslation(NamespaceEnum.HOME_PAGE);
+  const { t } = useTranslation(NamespaceEnum.COMMON);
   const classes = useStyles(props);
 
   return (
@@ -29,7 +29,7 @@ const Layout: React.FC<Props> = (props) => {
           <MenuIcon className={classes.menuIcon} />
         </IconButton>
         <Typography variant="h6" className={classes.title}>
-          {t('page_title')}
+          {t('header.title')}
         </Typography>
         <SearchBox />
         <div className={classes.grow} />

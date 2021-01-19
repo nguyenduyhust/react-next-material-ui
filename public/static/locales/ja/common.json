@@ -1,4 +1,8 @@
 {
+  "header": {
+    "title": "Reactボイラープレート",
+    "search_box_placeholder": "探す"
+  },
   "desktop": "デスクトップ",
   "mobile": "モバイル"
 }

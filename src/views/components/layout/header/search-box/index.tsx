@@ -14,7 +14,7 @@ interface Props extends StyledComponentProps<typeof styles> {}
 
 const SearchBox: React.FC<Props> = (props) => {
   const classes = useStyles(props);
-  const { t } = useTranslation(NamespaceEnum.HOME_PAGE);
+  const { t } = useTranslation(NamespaceEnum.COMMON);
 
   return (
     <div className={classes.root}>
@@ -22,7 +22,7 @@ const SearchBox: React.FC<Props> = (props) => {
         <SearchIcon />
       </div>
       <InputBase
-        placeholder={t('header_search_box_placeholder')}
+        placeholder={t('header.search_box_placeholder')}
         classes={{
           root: classes.inputRoot,
           input: classes.inputInput,
