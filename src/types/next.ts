@@ -6,6 +6,6 @@ declare module 'next/types' {
   interface InitialProps {
     title: string;
     namespacesRequired: Namespace;
-    initialReduxState: string;
+    initialReduxState?: string;
   }
 }

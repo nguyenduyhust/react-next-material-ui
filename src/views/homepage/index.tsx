@@ -47,7 +47,7 @@ Homepage.getInitialProps = async ({ req }) => {
 
   return {
     title: 'Homepage',
-    namespacesRequired: [NamespaceEnum.COMMON, NamespaceEnum.HOME_PAGE],
+    namespacesRequired: [NamespaceEnum.HOME_PAGE],
     initialReduxState: JSON.stringify(reduxStore.getState()),
   };
 };
