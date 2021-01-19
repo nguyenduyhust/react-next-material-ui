@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "format": "prettier --write \"src/**/*.(ts|tsx)\"",
-    "lint": "eslint \"src/**/*.{ts,tsx}\" --fix"
+    "lint": "eslint \"src/**/*.{ts,tsx}\" --fix",
+    "gen:view": "./node_modules/.bin/ts-node --skip-project scripts/gen-view.ts",
+    "gen:page": "./node_modules/.bin/ts-node --skip-project scripts/gen-page.ts"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
@@ -23,16 +25,20 @@
     "redux-promise": "^0.6.0"
   },
   "devDependencies": {
+    "@types/mustache": "^4.1.0",
     "@types/node": "^14.0.24",
     "@types/react": "^16.9.43",
     "@types/react-redux": "^7.1.9",
     "@types/redux-promise": "^0.5.29",
     "@typescript-eslint/eslint-plugin": "^4.6.1",
     "@typescript-eslint/parser": "^4.6.1",
+    "commander": "^7.0.0",
     "eslint": "^7.12.1",
     "eslint-plugin-prettier": "^3.1.4",
+    "mustache": "^4.1.0",
     "prettier": "^2.1.2",
     "redux-devtools-extension": "^2.13.8",
+    "ts-node": "^9.1.1",
     "typescript": "^3.9.7"
   }
 }

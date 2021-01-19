@@ -1,0 +1,28 @@
+// lib
+import React from 'react';
+import { NextPage, InitialProps } from 'next';
+import { useSelector } from 'react-redux';
+// Component
+import { useTranslation, NamespaceEnum } from '@i18n';
+import * as AppActions from '@actions/app.action';
+import { StyledComponentProps } from '@type/material-ui';
+import { useStyles, styles } from './style';
+
+interface Props extends InitialProps, StyledComponentProps<typeof styles> {}
+
+const {{pageName}}: NextPage<Props, InitialProps> = (props) => {
+  const { namespacesRequired } = props;
+  const classes = useStyles(props);
+  const { t } = useTranslation(namespacesRequired);
+
+  return <div className={classes.root}></div>;
+};
+
+{{pageName}}.getInitialProps = async ({ req }) => {
+  return {
+    title: '{{pageName}}',
+    namespacesRequired: [],
+  };
+};
+
+export default {{pageName}};
