@@ -7,9 +7,12 @@ import App, { AppProps, AppContext } from 'next/app';
 import { appWithTranslation } from '@i18n';
 import theme from '@styles/theme';
 import { useStore } from '@redux/with-redux';
+import { InitialState } from '@redux/configure-store';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  const store = useStore(JSON.parse(pageProps.initialReduxState));
+  const store = useStore(
+    pageProps.initialReduxState ? JSON.parse(pageProps.initialReduxState) : InitialState,
+  );
 
   useEffect(() => {
     // Remove the server-side injected CSS.
