@@ -1,0 +1,11 @@
+{
+  "sign_in": "Sign in",
+  "email_address": "Email Address",
+  "password": "Password",
+  "remember_me": "Remember me",
+  "forgot_password": "Forgot password?",
+  "sign_up_if_do_not_have_account": "Don't have an account? Sign Up",
+  "required": "Required",
+  "invalid_email": "Invalid email",
+  "min_password_validate_text": "Use 8 or more characters"
+}
