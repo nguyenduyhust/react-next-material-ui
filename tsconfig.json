@@ -48,6 +48,12 @@
       ],
       "@i18n": [
         "src/i18n"
+      ],
+      "@services/*": [
+        "src/services/*"
+      ],
+      "@enums/*": [
+        "src/enums/*"
       ]
     }
   },

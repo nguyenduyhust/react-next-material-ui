@@ -12,6 +12,15 @@ const styles = (theme: Theme) =>
     title: {
       marginRight: theme.spacing(2),
     },
+    accountInfo: {
+      display: 'flex',
+      alignItems: 'center',
+      cursor: 'pointer',
+      userSelect: 'none',
+    },
+    accountIcon: {
+      marginRight: theme.spacing(1),
+    },
     grow: {
       flexGrow: 1,
     },

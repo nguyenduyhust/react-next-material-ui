@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { SnackbarProvider } from 'notistack';
 import { Provider } from 'react-redux';
 import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -8,6 +9,7 @@ import { appWithTranslation } from '@i18n';
 import theme from '@styles/theme';
 import { useStore } from '@redux/with-redux';
 import { InitialState } from '@redux/configure-store';
+import '@services/firebase.service';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const store = useStore(
@@ -31,9 +33,18 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <Provider store={store}>
-          <Component {...pageProps} />
-        </Provider>
+        <SnackbarProvider
+          maxSnack={3}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'right',
+          }}
+          autoHideDuration={3000}
+        >
+          <Provider store={store}>
+            <Component {...pageProps} />
+          </Provider>
+        </SnackbarProvider>
       </ThemeProvider>
     </React.Fragment>
   );
