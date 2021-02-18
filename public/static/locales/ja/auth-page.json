@@ -9,7 +9,7 @@
   "remember_me": "Remember me",
   "forgot_password": "Forgot password?",
   "sign_up_if_do_not_have_account": "Don't have an account? Sign Up",
-  "sign_in_if_have_account": "Have an account? Sign Up",
+  "sign_in_if_have_account": "Have an account? Sign In",
   "required": "Required",
   "invalid_email": "Invalid email",
   "password_does_not_match": "Password doesn't match",

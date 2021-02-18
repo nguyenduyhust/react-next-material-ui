@@ -1,6 +1,5 @@
 // lib
 import React from 'react';
-import firebase from 'firebase/app';
 // component
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -11,6 +10,8 @@ import Typography from '@material-ui/core/Typography';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import SearchBox from './search-box';
+// Hooks
+import { useCurrentUser } from '~/hooks/firebase.hook';
 // localization
 import { useTranslation, NamespaceEnum } from '@i18n';
 // type
@@ -23,13 +24,11 @@ interface Props extends StyledComponentProps<typeof styles> {}
 const Layout: React.FC<Props> = (props) => {
   const { t } = useTranslation(NamespaceEnum.COMMON);
   const classes = useStyles(props);
-  const user = firebase.auth().currentUser;
+  const user = useCurrentUser();
 
   if (!user) {
     return null;
   }
-
-  console.log(user.displayName);
 
   return (
     <AppBar>

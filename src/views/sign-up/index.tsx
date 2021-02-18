@@ -42,14 +42,16 @@ const SignUp: NextPage<Props, InitialProps> = (props) => {
   const onSubmit = useCallback(async (values: FormValues) => {
     const { email, password, firstName, lastName } = values;
     try {
+      await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
       const userCredential = await firebase.auth().createUserWithEmailAndPassword(email, password);
       const user = userCredential.user;
+      const displayName = `${firstName} ${lastName}`;
       if (user) {
         await user.updateProfile({
-          displayName: `${firstName} ${lastName}`,
+          displayName,
         });
       }
-      enqueueSnackbar('Sign up success', { variant: 'success' });
+      enqueueSnackbar(`Welcome ${displayName}`, { variant: 'success' });
       router.push(AppRoutesEnum.HOME);
     } catch (error) {
       enqueueSnackbar(error.message, { variant: 'error' });
@@ -88,8 +90,7 @@ const SignUp: NextPage<Props, InitialProps> = (props) => {
                 variant="outlined"
                 required
                 fullWidth
-                autoComplete="email"
-                autoFocus
+                autoComplete="first-name"
               />
             </Grid>
             <Grid item xs={6}>
@@ -107,8 +108,7 @@ const SignUp: NextPage<Props, InitialProps> = (props) => {
                 variant="outlined"
                 required
                 fullWidth
-                autoComplete="email"
-                autoFocus
+                autoComplete="last-name"
               />
             </Grid>
             <Grid item xs={12}>
@@ -125,7 +125,6 @@ const SignUp: NextPage<Props, InitialProps> = (props) => {
                 required
                 fullWidth
                 autoComplete="email"
-                autoFocus
               />
             </Grid>
             <Grid item xs={12}>
@@ -144,7 +143,7 @@ const SignUp: NextPage<Props, InitialProps> = (props) => {
                 variant="outlined"
                 required
                 fullWidth
-                autoComplete="current-password"
+                autoComplete="password"
               />
             </Grid>
             <Grid item xs={12}>
@@ -165,13 +164,13 @@ const SignUp: NextPage<Props, InitialProps> = (props) => {
                 variant="outlined"
                 required
                 fullWidth
-                autoComplete="current-password"
+                autoComplete="confirm-password"
               />
             </Grid>
             <Grid item xs={12}>
               <Button
                 type="submit"
-                disabled={!formik.isValid}
+                disabled={!formik.isValid || !formik.dirty}
                 fullWidth
                 variant="contained"
                 color="primary"
@@ -186,8 +185,8 @@ const SignUp: NextPage<Props, InitialProps> = (props) => {
               </Link>
             </Grid>
             <Grid item xs={12} sm={6}>
-              <Link href="#">
-                <a className={classes.signUp}>{t('sign_up_if_do_not_have_account')}</a>
+              <Link href={AppRoutesEnum.SIGN_IN}>
+                <a className={classes.signUp}>{t('sign_in_if_have_account')}</a>
               </Link>
             </Grid>
           </Grid>

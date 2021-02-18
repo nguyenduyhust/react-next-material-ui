@@ -42,8 +42,10 @@ const SignIn: NextPage<Props, InitialProps> = (props) => {
   const onSubmit = useCallback(async (values: FormValues) => {
     const { email, password } = values;
     try {
-      await firebase.auth().signInWithEmailAndPassword(email, password);
-      enqueueSnackbar('Sign in success', { variant: 'success' });
+      await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
+      const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
+      const user = userCredential.user;
+      enqueueSnackbar(`Welcome ${user?.displayName}`, { variant: 'success' });
       router.push(AppRoutesEnum.HOME);
     } catch (error) {
       enqueueSnackbar(error.message, { variant: 'error' });
@@ -96,13 +98,13 @@ const SignIn: NextPage<Props, InitialProps> = (props) => {
                 variant="outlined"
                 required
                 fullWidth
-                autoComplete="current-password"
+                autoComplete="password"
               />
             </Grid>
             <Grid item xs={12}>
               <Button
                 type="submit"
-                disabled={!formik.isValid}
+                disabled={!formik.isValid || !formik.dirty}
                 fullWidth
                 variant="contained"
                 color="primary"
@@ -117,7 +119,7 @@ const SignIn: NextPage<Props, InitialProps> = (props) => {
               </Link>
             </Grid>
             <Grid item xs={12} sm={6}>
-              <Link href="#">
+              <Link href={AppRoutesEnum.SIGN_UP}>
                 <a className={classes.signUp}>{t('sign_up_if_do_not_have_account')}</a>
               </Link>
             </Grid>
