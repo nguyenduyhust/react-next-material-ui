@@ -14,5 +14,9 @@
   "japanese": "日本語",
   "user_setting": "ユーザー設定",
   "cancel": "キャンセル",
-  "submit": "参加する"
+  "submit": "参加する",
+  "homepage": "Homepage",
+  "orders": "Orders",
+  "invoices": "Invoices",
+  "documentation": "Documentation"
 }

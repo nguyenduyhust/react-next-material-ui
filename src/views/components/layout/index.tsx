@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 // Component
 import Header from './header';
+import SideBar from './side-bar';
 // type
 import { StyledComponentProps } from '@type/material-ui';
 // Hooks
@@ -30,6 +31,7 @@ const Layout: React.FC<Props> = (props) => {
   return (
     <div className={classes.root}>
       <Header />
+      <SideBar />
       <div className={classes.content}>{children}</div>
     </div>
   );

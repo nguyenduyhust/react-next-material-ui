@@ -5,6 +5,10 @@ import {
   TORY_BLUE_COLOR,
   NAVY_BLUE_COLOR,
   PATTENS_BLUE_COLOR,
+  MID_NIGHT_COLOR,
+  ALICE_BLUE_COLOR,
+  NOBEL_COLOR,
+  CHARCOAL_COLOR,
 } from './colors';
 import {
   XS_BREAKPOINT,
@@ -21,6 +25,10 @@ const theme: Theme = createMuiTheme({
     toryBlue: TORY_BLUE_COLOR,
     navyBlue: NAVY_BLUE_COLOR,
     pattensBlue: PATTENS_BLUE_COLOR,
+    midnight: MID_NIGHT_COLOR,
+    aliceBlue: ALICE_BLUE_COLOR,
+    nobel: NOBEL_COLOR,
+    charcoal: CHARCOAL_COLOR,
   },
   breakpoints: {
     values: {

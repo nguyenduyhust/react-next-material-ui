@@ -19,22 +19,16 @@ interface Props extends InitialProps, StyledComponentProps<typeof styles> {}
 
 const Homepage: NextPage<Props, InitialProps> = (props) => {
   const { namespacesRequired } = props;
-  const isMobile = useSelector(sIsMobile);
   const classes = useStyles(props);
   const { t } = useTranslation(namespacesRequired);
 
   return (
     <Layout>
-      <Container maxWidth="sm">
-        <Box my={4}>
-          <Typography variant="h4" component="h1" gutterBottom>
-            {t('homepage')}
-          </Typography>
-          <div className={classes.deviceLabel}>
-            {isMobile ? t('common:mobile') : t('common:desktop')}
-          </div>
-        </Box>
-      </Container>
+      <div className={classes.root}>
+        <Typography variant="h4" component="h1" gutterBottom>
+          {t('homepage')}
+        </Typography>
+      </div>
     </Layout>
   );
 };

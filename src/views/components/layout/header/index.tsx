@@ -43,14 +43,8 @@ const Layout: React.FC<Props> = (props) => {
   }
 
   return (
-    <AppBar>
-      <Toolbar>
-        <IconButton className={classes.menuButton}>
-          <MenuIcon className={classes.menuIcon} />
-        </IconButton>
-        <Typography variant="h6" className={classes.title}>
-          {t('header.title')}
-        </Typography>
+    <AppBar position="fixed" elevation={0} className={classes.appBar}>
+      <Toolbar className={classes.toolbar}>
         <SearchBox />
         <div className={classes.grow} />
         <div className={classes.accountInfo}>

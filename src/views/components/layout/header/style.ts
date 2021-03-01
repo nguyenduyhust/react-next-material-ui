@@ -1,8 +1,17 @@
+import { SIDE_BAR_WIDTH } from '../side-bar/style';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+
+const TOOLBAR_MIN_HEIGHT = 60;
 
 const styles = (theme: Theme) =>
   createStyles({
-    root: {},
+    appBar: {
+      width: `calc(100% - ${SIDE_BAR_WIDTH}px)`,
+      backgroundColor: theme.colors.white,
+    },
+    toolbar: {
+      minHeight: TOOLBAR_MIN_HEIGHT,
+    },
     menuButton: {
       marginRight: theme.spacing(2),
     },
@@ -32,4 +41,4 @@ const styles = (theme: Theme) =>
 
 const useStyles = makeStyles(styles);
 
-export { styles, useStyles };
+export { styles, useStyles, TOOLBAR_MIN_HEIGHT };

@@ -3,3 +3,7 @@ export const WHITE_COLOR = '#FFFFFF';
 export const TORY_BLUE_COLOR = '#344090';
 export const NAVY_BLUE_COLOR = '#1976D2';
 export const PATTENS_BLUE_COLOR = '#D8DFE5';
+export const MID_NIGHT_COLOR = '#233044';
+export const ALICE_BLUE_COLOR = '#F7F9FC';
+export const NOBEL_COLOR = '#9E9E9E';
+export const CHARCOAL_COLOR = '#424242';

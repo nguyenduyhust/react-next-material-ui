@@ -1,4 +1,4 @@
-import { ColorProperty } from 'csstype';
+import { ColorProperty, HeightProperty } from 'csstype';
 import {
   ClassKeyOfStyles,
   StyledComponentProps as MUIStyledComponentProps,
@@ -10,6 +10,10 @@ interface ThemeColors {
   toryBlue: ColorProperty;
   navyBlue: ColorProperty;
   pattensBlue: ColorProperty;
+  midnight: ColorProperty;
+  aliceBlue: ColorProperty;
+  nobel: ColorProperty;
+  charcoal: ColorProperty;
 }
 
 declare module '@material-ui/core/styles/createMuiTheme' {
