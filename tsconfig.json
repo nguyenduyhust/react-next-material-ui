@@ -52,6 +52,9 @@
       "@services/*": [
         "src/services/*"
       ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
       "@enums/*": [
         "src/enums/*"
       ]

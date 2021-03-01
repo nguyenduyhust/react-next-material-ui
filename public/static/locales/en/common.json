@@ -1,8 +1,18 @@
 {
   "header": {
     "title": "React Boilerplate",
-    "search_box_placeholder": "Search"
+    "search_box_placeholder": "Search",
+    "sign_out": "Sign out"
   },
   "desktop": "Desktop",
-  "mobile": "Mobile"
+  "mobile": "Mobile",
+  "setting": "Setting",
+  "display_name": "Display Name",
+  "email_address": "Email Address",
+  "language": "Language",
+  "english": "English",
+  "japanese": "日本語",
+  "user_setting": "User Setting",
+  "cancel": "Cancel",
+  "submit": "Submit"
 }

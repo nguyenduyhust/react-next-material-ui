@@ -1,17 +1,18 @@
 // lib
-import React from 'react';
+import React, { useCallback } from 'react';
 // component
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import Button from '@material-ui/core/Button';
-import InputBase from '@material-ui/core/InputBase';
 import Typography from '@material-ui/core/Typography';
 import MenuIcon from '@material-ui/icons/Menu';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import SearchBox from './search-box';
-// Hooks
-import { useCurrentUser } from '~/hooks/firebase.hook';
+import UserPopover from './user-popover';
+// hooks
+import { useFirebaseAuth } from '@hooks/firebase.hook';
+// selectors
+import { useSelector } from 'react-redux';
+import { sUser } from '@selectors/app.selector';
 // localization
 import { useTranslation, NamespaceEnum } from '@i18n';
 // type
@@ -24,8 +25,19 @@ interface Props extends StyledComponentProps<typeof styles> {}
 const Layout: React.FC<Props> = (props) => {
   const { t } = useTranslation(NamespaceEnum.COMMON);
   const classes = useStyles(props);
-  const user = useCurrentUser();
+  const [userPopoverAnchorEl, setUserPopoverAnchorEl] = React.useState<HTMLButtonElement | null>(
+    null,
+  );
+  const onAvatarClick = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
+    setUserPopoverAnchorEl(event.currentTarget);
+  }, []);
+  const onUserPopoverClose = useCallback(() => {
+    setUserPopoverAnchorEl(null);
+  }, []);
 
+  useFirebaseAuth();
+
+  const user = useSelector(sUser);
   if (!user) {
     return null;
   }
@@ -42,10 +54,16 @@ const Layout: React.FC<Props> = (props) => {
         <SearchBox />
         <div className={classes.grow} />
         <div className={classes.accountInfo}>
-          <AccountCircleIcon className={classes.accountIcon} />
-          <Typography variant="body1">{user.displayName}</Typography>
+          <IconButton onClick={onAvatarClick}>
+            <img
+              className={classes.avatar}
+              src={user.photoURL || '/static/icons/default_account_icon.png'}
+              alt=""
+            />
+          </IconButton>
         </div>
       </Toolbar>
+      <UserPopover user={user} anchorEl={userPopoverAnchorEl} onClose={onUserPopoverClose} />
     </AppBar>
   );
 };

@@ -1,8 +1,7 @@
 {
   "sign_in": "Sign in",
   "sign_up": "Sign up",
-  "first_name": "First Name",
-  "last_name": "Last Name",
+  "display_name": "Display Name",
   "email_address": "Email Address",
   "password": "Password",
   "confirm_password": "Confirm Password",
@@ -13,5 +12,7 @@
   "required": "Required",
   "invalid_email": "Invalid email",
   "password_does_not_match": "Password doesn't match",
-  "min_password_validate_text": "Use 8 or more characters"
+  "min_password_validate_text": "Use 8 or more characters",
+  "sign_up_welcome": "Welcome {{name}}",
+  "sign_in_hello": "Hello {{name}}"
 }

@@ -11,6 +11,14 @@ const styles = (theme: Theme) =>
       backgroundSize: 'cover',
       backgroundPosition: 'center',
     },
+    paper: {
+      margin: theme.spacing(8, 'auto'),
+      maxWidth: 450,
+      width: '90%',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    },
   });
 
 const useStyles = makeStyles(styles);

@@ -1,5 +1,11 @@
 import { createMuiTheme, Theme } from '@material-ui/core/styles';
-import { BLACK_COLOR, WHITE_COLOR, TORY_BLUE_COLOR, NAVY_BLUE_COLOR } from './colors';
+import {
+  BLACK_COLOR,
+  WHITE_COLOR,
+  TORY_BLUE_COLOR,
+  NAVY_BLUE_COLOR,
+  PATTENS_BLUE_COLOR,
+} from './colors';
 import {
   XS_BREAKPOINT,
   SM_BREAKPOINT,
@@ -14,6 +20,7 @@ const theme: Theme = createMuiTheme({
     white: WHITE_COLOR,
     toryBlue: TORY_BLUE_COLOR,
     navyBlue: NAVY_BLUE_COLOR,
+    pattensBlue: PATTENS_BLUE_COLOR,
   },
   breakpoints: {
     values: {

@@ -1,8 +1,18 @@
 {
   "header": {
     "title": "Reactボイラープレート",
-    "search_box_placeholder": "探す"
+    "search_box_placeholder": "探す",
+    "sign_out": "サインアウト"
   },
   "desktop": "デスクトップ",
-  "mobile": "モバイル"
+  "mobile": "モバイル",
+  "setting": "設定",
+  "display_name": "表示名",
+  "email_address": "電子メールアドレス",
+  "language": "言語",
+  "english": "English",
+  "japanese": "日本語",
+  "user_setting": "ユーザー設定",
+  "cancel": "キャンセル",
+  "submit": "参加する"
 }

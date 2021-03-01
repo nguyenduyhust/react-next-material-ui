@@ -29,6 +29,7 @@ import { StyledComponentProps } from '@type/material-ui';
 import { useStyles, styles } from './style';
 // Misc
 import { AppRoutesEnum } from '@enums/route.enum';
+import { FirebaseService } from '~/services/firebase.service';
 
 interface Props extends InitialProps, StyledComponentProps<typeof styles> {}
 
@@ -42,10 +43,9 @@ const SignIn: NextPage<Props, InitialProps> = (props) => {
   const onSubmit = useCallback(async (values: FormValues) => {
     const { email, password } = values;
     try {
-      await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
-      const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
+      const userCredential = await FirebaseService.signIn({ email, password });
       const user = userCredential.user;
-      enqueueSnackbar(`Welcome ${user?.displayName}`, { variant: 'success' });
+      enqueueSnackbar(t('sign_in_hello', { name: user?.displayName }), { variant: 'success' });
       router.push(AppRoutesEnum.HOME);
     } catch (error) {
       enqueueSnackbar(error.message, { variant: 'error' });
@@ -60,72 +60,70 @@ const SignIn: NextPage<Props, InitialProps> = (props) => {
 
   return (
     <AuthLayout>
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          {t('sign_in')}
-        </Typography>
-        <form className={classes.form} onSubmit={formik.handleSubmit}>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                id="email"
-                name="email"
-                label={t('email_address')}
-                onChange={formik.handleChange}
-                value={formik.values.email}
-                helperText={formik.errors.email && t(formik.errors.email)}
-                error={Boolean(formik.errors.email)}
-                variant="outlined"
-                required
-                fullWidth
-                autoComplete="email"
-                autoFocus
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                id="password"
-                name="password"
-                type="password"
-                label={t('password')}
-                value={formik.values.password}
-                onChange={formik.handleChange}
-                helperText={formik.errors.password && t(formik.errors.password)}
-                error={Boolean(formik.errors.password)}
-                variant="outlined"
-                required
-                fullWidth
-                autoComplete="password"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Button
-                type="submit"
-                disabled={!formik.isValid || !formik.dirty}
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-              >
-                {t('sign_in')}
-              </Button>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Link href="#">
-                <a className={classes.forgotPassword}>{t('forgot_password')}</a>
-              </Link>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Link href={AppRoutesEnum.SIGN_UP}>
-                <a className={classes.signUp}>{t('sign_up_if_do_not_have_account')}</a>
-              </Link>
-            </Grid>
+      <Avatar className={classes.avatar}>
+        <LockOutlinedIcon />
+      </Avatar>
+      <Typography component="h1" variant="h5">
+        {t('sign_in')}
+      </Typography>
+      <form className={classes.form} onSubmit={formik.handleSubmit}>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <TextField
+              id="email"
+              name="email"
+              label={t('email_address')}
+              onChange={formik.handleChange}
+              value={formik.values.email}
+              helperText={formik.errors.email && t(formik.errors.email)}
+              error={Boolean(formik.errors.email)}
+              variant="outlined"
+              required
+              fullWidth
+              autoComplete="email"
+              autoFocus
+            />
           </Grid>
-        </form>
-      </div>
+          <Grid item xs={12}>
+            <TextField
+              id="password"
+              name="password"
+              type="password"
+              label={t('password')}
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              helperText={formik.errors.password && t(formik.errors.password)}
+              error={Boolean(formik.errors.password)}
+              variant="outlined"
+              required
+              fullWidth
+              autoComplete="password"
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Button
+              type="submit"
+              disabled={!formik.isValid || !formik.dirty}
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              {t('sign_in')}
+            </Button>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Link href="#">
+              <a className={classes.forgotPassword}>{t('forgot_password')}</a>
+            </Link>
+          </Grid>
+          <Grid item xs={12} sm={6} className={classes.signUp}>
+            <Link href={AppRoutesEnum.SIGN_UP}>
+              <a>{t('sign_up_if_do_not_have_account')}</a>
+            </Link>
+          </Grid>
+        </Grid>
+      </form>
     </AuthLayout>
   );
 };

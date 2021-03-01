@@ -24,6 +24,10 @@ const styles = (theme: Theme) =>
     grow: {
       flexGrow: 1,
     },
+    avatar: {
+      width: 30,
+      borderRadius: '50%',
+    },
   });
 
 const useStyles = makeStyles(styles);

@@ -4,12 +4,6 @@ import { link } from '@styles/common';
 const styles = (theme: Theme) =>
   createStyles({
     root: {},
-    paper: {
-      margin: theme.spacing(8, 4),
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-    },
     avatar: {
       margin: theme.spacing(1),
       backgroundColor: theme.palette.secondary.main,
@@ -25,7 +19,10 @@ const styles = (theme: Theme) =>
       ...link,
     },
     signUp: {
-      ...link,
+      textAlign: 'right',
+      '& a': {
+        ...link,
+      },
     },
   });
 

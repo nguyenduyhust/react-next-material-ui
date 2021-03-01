@@ -9,6 +9,7 @@ interface ThemeColors {
   white: ColorProperty;
   toryBlue: ColorProperty;
   navyBlue: ColorProperty;
+  pattensBlue: ColorProperty;
 }
 
 declare module '@material-ui/core/styles/createMuiTheme' {

@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 // Types
 import { StyledComponentProps } from '@type/material-ui';
+// Hooks
 // Styles
 import { useStyles, styles } from './style';
 
@@ -16,9 +17,9 @@ const AuthLayout: React.FC<Props> = (props) => {
 
   return (
     <Grid container className={classes.root}>
-      <Grid item xs={false} sm={4} md={7} className={classes.bgImage} />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        {children}
+      <Grid item xs={false} sm={false} md={7} className={classes.bgImage} />
+      <Grid item xs={12} sm={12} md={5} component={Paper} elevation={6} square>
+        <div className={classes.paper}>{children}</div>
       </Grid>
     </Grid>
   );

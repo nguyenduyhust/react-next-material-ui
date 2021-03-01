@@ -9,7 +9,9 @@ import { appWithTranslation } from '@i18n';
 import theme from '@styles/theme';
 import { useStore } from '@redux/with-redux';
 import { InitialState } from '@redux/configure-store';
-import '@services/firebase.service';
+import { FirebaseService } from '@services/firebase.service';
+
+FirebaseService.initialize();
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const store = useStore(
