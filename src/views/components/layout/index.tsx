@@ -10,7 +10,7 @@ import { useFirebaseAuth } from '@hooks/firebase.hook';
 import { useI18nSelectLanguage } from '@hooks/i18n.hook';
 // selectors
 import { useSelector } from 'react-redux';
-import { sUser } from '@selectors/app.selector';
+import { sUser } from '@redux/selectors/app.selector';
 // style
 import { useStyles, styles } from './style';
 // Misc

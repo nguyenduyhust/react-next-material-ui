@@ -5,6 +5,7 @@ import * as mustache from 'mustache';
 
 const VIEW_TEMPLATE_PATH = './templates/view.mustache';
 const STYLE_TEMPLATE_PATH = './templates/style.mustache';
+const TEST_TEMPLATE_PATH = './templates/test.mustache';
 
 const render = (dirPath: string, compName: string) => {
   // Check the existence of filePath
@@ -15,6 +16,7 @@ const render = (dirPath: string, compName: string) => {
   dirPath = path.join('src/views', dirPath);
 
   const viewPath = path.join(dirPath, 'index.tsx');
+  const testPath = path.join(dirPath, 'index.test.tsx');
   const stylePath = path.join(dirPath, 'style.ts');
   const isExist = fs.existsSync(viewPath) || fs.existsSync(stylePath);
   if (isExist) {
@@ -31,12 +33,17 @@ const render = (dirPath: string, compName: string) => {
   const styleTemplate = fs.readFileSync(path.join(__dirname, STYLE_TEMPLATE_PATH), {
     encoding: 'utf8',
   });
+  const testTemplate = fs.readFileSync(path.join(__dirname, TEST_TEMPLATE_PATH), {
+    encoding: 'utf8',
+  });
   const view = mustache.render(viewTemplate, {
     compName,
   });
   const style = mustache.render(styleTemplate, {});
+  const test = mustache.render(testTemplate, {});
   fs.writeFileSync(path.join(viewPath), view);
   fs.writeFileSync(path.join(stylePath), style);
+  fs.writeFileSync(path.join(testPath), test);
 };
 
 const program = new Command();

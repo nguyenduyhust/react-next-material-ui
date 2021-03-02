@@ -4,15 +4,13 @@ import React, { useCallback } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchBox from './search-box';
 import UserPopover from './user-popover';
 // hooks
 import { useFirebaseAuth } from '@hooks/firebase.hook';
 // selectors
 import { useSelector } from 'react-redux';
-import { sUser } from '@selectors/app.selector';
+import { sUser } from '@redux/selectors/app.selector';
 // localization
 import { useTranslation, NamespaceEnum } from '@i18n';
 // type

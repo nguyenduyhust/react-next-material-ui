@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useTranslation } from '@i18n';
 // selectors
 import { useSelector } from 'react-redux';
-import { sUserPreference } from '@selectors/app.selector';
+import { sUserPreference } from '@redux/selectors/app.selector';
 
 export const useI18nSelectLanguage = () => {
   const { language } = useSelector(sUserPreference);

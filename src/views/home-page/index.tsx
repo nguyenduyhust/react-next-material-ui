@@ -1,16 +1,12 @@
 // lib
 import React from 'react';
 import { NextPage, InitialProps } from 'next';
-import { useSelector } from 'react-redux';
 // Component
-import { sIsMobile } from '@selectors/app.selector';
-import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
 import Layout from '@views/components/layout';
 
 import { useTranslation, NamespaceEnum } from '@i18n';
-import * as AppActions from '@actions/app.action';
+import * as AppActions from '@redux/actions/app.action';
 import { initializeStore } from '@redux/with-redux';
 import { StyledComponentProps } from '@type/material-ui';
 import { useStyles, styles } from './style';

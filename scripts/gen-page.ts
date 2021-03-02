@@ -6,6 +6,7 @@ import * as mustache from 'mustache';
 const PAGE_ROUTE_TEMPLATE_PATH = './templates/page-route.mustache';
 const PAGE_VIEW_TEMPLATE_PATH = './templates/page-view.mustache';
 const STYLE_TEMPLATE_PATH = './templates/style.mustache';
+const TEST_TEMPLATE_PATH = './templates/page-test.mustache';
 
 const render = (route: string, name: string) => {
   // Check the existence of filePath
@@ -20,6 +21,7 @@ const render = (route: string, name: string) => {
   const pageRoutePath = path.join('pages', route, 'index.tsx');
   const pageViewPath = path.join('src/views', route, 'index.tsx');
   const stylePath = path.join('src/views', route, 'style.ts');
+  const testPath = path.join('src/views', route, 'index.test.tsx');
 
   const isExist =
     fs.existsSync(pageRoutePath) || fs.existsSync(pageViewPath) || fs.existsSync(stylePath);
@@ -51,13 +53,18 @@ const render = (route: string, name: string) => {
   const styleTemplate = fs.readFileSync(path.join(__dirname, STYLE_TEMPLATE_PATH), {
     encoding: 'utf8',
   });
+  const testTemplate = fs.readFileSync(path.join(__dirname, TEST_TEMPLATE_PATH), {
+    encoding: 'utf8',
+  });
   fs.writeFileSync(path.join(pageViewPath), pageView);
   // Style
   if (!fs.existsSync(path.dirname(stylePath))) {
     fs.mkdirSync(path.dirname(stylePath));
   }
   const style = mustache.render(styleTemplate, {});
+  const test = mustache.render(testTemplate, {});
   fs.writeFileSync(path.join(stylePath), style);
+  fs.writeFileSync(path.join(testPath), test);
 };
 
 const program = new Command();

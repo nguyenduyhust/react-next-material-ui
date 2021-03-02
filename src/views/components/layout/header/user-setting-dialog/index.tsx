@@ -20,7 +20,7 @@ import { FormValues, validationSchema, languageOptions } from './form';
 import { useTranslation, NamespaceEnum } from '@i18n';
 // selectors
 import { useSelector } from 'react-redux';
-import { sUserPreference } from '@selectors/app.selector';
+import { sUserPreference } from '@redux/selectors/app.selector';
 // hooks
 import { useSnackbar } from 'notistack';
 // helpers

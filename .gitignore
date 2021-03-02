@@ -1,4 +1,12 @@
+# package dependencies
 node_modules
+
+# build
 .next
 dist
+
+# environment config
 .env
+
+# jest
+coverage

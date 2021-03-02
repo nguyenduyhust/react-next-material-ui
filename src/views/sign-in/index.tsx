@@ -22,7 +22,6 @@ import { FormValues, initialValues, validationSchema } from './form';
 // Localization
 import { useTranslation, NamespaceEnum } from '@i18n';
 // Action
-import * as AppActions from '@actions/app.action';
 // Type
 import { StyledComponentProps } from '@type/material-ui';
 // Style
