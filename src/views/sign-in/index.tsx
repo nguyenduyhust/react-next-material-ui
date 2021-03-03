@@ -1,13 +1,11 @@
 // lib
 import React, { useCallback } from 'react';
-import firebase from 'firebase/app';
 import { useSnackbar } from 'notistack';
 // Next
 import { NextPage, InitialProps } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 // Redux
-import { useSelector } from 'react-redux';
 // Component
 import AuthLayout from '@views/components/auth-layout';
 import Grid from '@material-ui/core/Grid';
@@ -28,7 +26,7 @@ import { StyledComponentProps } from '@type/material-ui';
 import { useStyles, styles } from './style';
 // Misc
 import { AppRoutesEnum } from '@enums/route.enum';
-import { FirebaseService } from '~/services/firebase.service';
+import FirebaseService from '~/services/firebase.service';
 
 interface Props extends InitialProps, StyledComponentProps<typeof styles> {}
 

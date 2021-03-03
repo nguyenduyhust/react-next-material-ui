@@ -1,4 +1,4 @@
-export class FileConverterHelper {
+class FileConverterHelper {
   public static fileToBase64(file: File) {
     return new Promise<string>((resolve, reject) => {
       const reader = new FileReader();
@@ -8,3 +8,5 @@ export class FileConverterHelper {
     });
   }
 }
+
+export default FileConverterHelper;

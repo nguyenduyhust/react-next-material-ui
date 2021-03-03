@@ -23,7 +23,7 @@ import { FormValues, initialValues, validationSchema } from './form';
 import { useTranslation, NamespaceEnum } from '@i18n';
 // Action
 // Service
-import { FirebaseService } from '@services/firebase.service';
+import FirebaseService from '@services/firebase.service';
 // Hooks
 // Type
 import { StyledComponentProps } from '@type/material-ui';

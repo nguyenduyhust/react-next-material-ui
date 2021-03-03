@@ -1,4 +1,4 @@
-export class ImageHelper {
+class ImageHelper {
   public static generateAvatarFromName(
     name: string, // The name used to generate initials. You can specify the initials yourself as well.
     options?: {
@@ -58,3 +58,5 @@ export class ImageHelper {
     return result;
   }
 }
+
+export default ImageHelper;
