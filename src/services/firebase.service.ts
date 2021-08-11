@@ -51,7 +51,7 @@ export type UpdateUserPreferenceArgs = {
   };
 };
 
-export class FirebaseService {
+class FirebaseService {
   public static initialize() {
     if (firebase.apps.length === 0) {
       firebase.initializeApp(firebaseConfig);
@@ -93,13 +93,13 @@ export class FirebaseService {
     }
   }
 
-  static async signIn(args: SignInArgs) {
+  public static async signIn(args: SignInArgs) {
     const { email, password } = args;
     await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
     return firebase.auth().signInWithEmailAndPassword(email, password);
   }
 
-  static async uploadUserAvatarAsset(args: UploadUserAvatarAssetArgs) {
+  public static async uploadUserAvatarAsset(args: UploadUserAvatarAssetArgs) {
     const { uid, image } = args;
     const storageRef = firebase.storage().ref();
     const userAssetsRef = storageRef.child(`${USER_ASSESTS_DIR}/${uid}`);
@@ -138,3 +138,5 @@ export class FirebaseService {
     });
   }
 }
+
+export default FirebaseService;

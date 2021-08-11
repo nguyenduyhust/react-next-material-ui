@@ -1,5 +1,5 @@
 // libs
-import React, { useCallback, useMemo, useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import firebase from 'firebase';
 // components
 import Dialog from '@material-ui/core/Dialog';
@@ -30,7 +30,7 @@ import * as FileConverterUtils from '~/utils/file-converter.util';
 import { StyledComponentProps } from '~/types/material-ui';
 // style
 import { useStyles, styles } from './style';
-import { FirebaseService } from '~/services/firebase.service';
+import FirebaseService from '~/services/firebase.service';
 
 interface Props extends StyledComponentProps<typeof styles> {
   open: boolean;

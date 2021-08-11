@@ -1,4 +1,3 @@
-import firebase from 'firebase';
 import { createTypeReducer } from '../type-redux';
 import * as AppActions from '../actions/app.action';
 import { Profile } from '~/types/store';
