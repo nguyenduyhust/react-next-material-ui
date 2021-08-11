@@ -1,13 +1,13 @@
 import firebase from 'firebase';
 import { createTypeAction, createTypeAsyncAction } from '../type-redux';
-import SystemHelper from '@helpers/system.helper';
-import { User } from '@type/store';
-import { Store } from '@redux/configure-store';
+import { User } from '~/types/store';
+import { Store } from '~/redux/configure-store';
+import * as SystemUtils from '~/utils/system.util';
 
 export const detectMobile = createTypeAction<string, boolean>(
   'DETECT_MOBILE',
   (userAgent: string) => {
-    return SystemHelper.detectMobile(userAgent);
+    return SystemUtils.detectMobile(userAgent);
   },
 );
 

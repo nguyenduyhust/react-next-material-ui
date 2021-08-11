@@ -1,1 +1,1 @@
-export { default } from '@views/home-page';
+export { default } from '~/containers/home-page';

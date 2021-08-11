@@ -19,36 +19,7 @@
     "jsx": "preserve",
     "baseUrl": "./",
     "paths": {
-      "~/*": [
-        "src/*"
-      ],
-      "@views/*": [
-        "src/views/*"
-      ],
-      "@redux/*": [
-        "src/redux/*"
-      ],
-      "@helpers/*": [
-        "src/helpers/*"
-      ],
-      "@styles/*": [
-        "src/styles/*"
-      ],
-      "@type/*": [
-        "src/types/*"
-      ],
-      "@i18n": [
-        "src/i18n"
-      ],
-      "@services/*": [
-        "src/services/*"
-      ],
-      "@hooks/*": [
-        "src/hooks/*"
-      ],
-      "@enums/*": [
-        "src/enums/*"
-      ]
+      "~/*": ["src/*"],
     }
   },
   "exclude": [

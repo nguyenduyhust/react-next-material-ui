@@ -1,7 +1,7 @@
 import firebase from 'firebase';
 import { createTypeReducer } from '../type-redux';
 import * as AppActions from '../actions/app.action';
-import { Profile } from '@type/store';
+import { Profile } from '~/types/store';
 
 export type State = {
   isMobile: boolean;

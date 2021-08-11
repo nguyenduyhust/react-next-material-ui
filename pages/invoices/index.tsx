@@ -1,1 +1,1 @@
-export { default } from '@views/invoices';
+export { default } from '~/containers/invoices';

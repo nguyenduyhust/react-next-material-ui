@@ -1,1 +1,1 @@
-export { default } from '@views/sign-up';
+export { default } from '~/containers/sign-up';

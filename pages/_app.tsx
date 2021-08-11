@@ -1,1 +1,1 @@
-export { default } from '../src/views/_app';
+export { default } from '../src/containers/_app';

@@ -1,1 +1,1 @@
-export { default } from '@views/documentation';
+export { default } from '~/containers/documentation';

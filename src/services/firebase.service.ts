@@ -3,7 +3,7 @@ import 'firebase/auth';
 import 'firebase/storage';
 import 'firebase/firestore';
 
-import { ImageHelper } from '@helpers/image.helper';
+import * as ImageUtils from '~/utils/image.util';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCsr-QuOiq9PUqUpwoK_GS5EXXVuB-VLLY',
@@ -69,7 +69,7 @@ export class FirebaseService {
     }
 
     let avatarUrl: string | undefined = undefined;
-    const avatar = ImageHelper.generateAvatarFromName(displayName);
+    const avatar = ImageUtils.generateAvatarFromName(displayName);
 
     try {
       avatarUrl = await this.uploadUserAvatarAsset({ uid: user.uid, image: avatar });

@@ -1,1 +1,1 @@
-export { default } from '@views/orders';
+export { default } from '~/containers/orders';

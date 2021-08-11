@@ -9,14 +9,14 @@ import {
   ALICE_BLUE_COLOR,
   NOBEL_COLOR,
   CHARCOAL_COLOR,
-} from './colors';
+} from '../constants/colors';
 import {
   XS_BREAKPOINT,
   SM_BREAKPOINT,
   MD_BREAKPOINT,
   LG_BREAKPOINT,
   XL_BREAKPOINT,
-} from './breakpoints';
+} from '../constants/breakpoints';
 
 const theme: Theme = createMuiTheme({
   colors: {
