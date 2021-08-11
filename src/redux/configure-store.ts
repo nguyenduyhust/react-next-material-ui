@@ -24,6 +24,11 @@ export const InitialState: RootState = Object.assign(createTypeReduxInitialState
   appState: AppReducer.initialState,
 });
 
+export const resetTypeReduxState = (state: RootState) => ({
+  ...state,
+  ...createTypeReduxInitialState(),
+});
+
 const middlewares: any[] = [typeReduxMiddleware, promiseMiddleware];
 
 export const configureStore = (initialState?: RootState) => {
