@@ -8,14 +8,16 @@ import App, { AppProps, AppContext } from 'next/app';
 import { appWithTranslation } from '@i18n';
 import theme from '@styles/theme';
 import { useStore } from '@redux/with-redux';
-import { InitialState } from '@redux/configure-store';
+import { InitialState, resetTypeReduxState } from '@redux/configure-store';
 import FirebaseService from '@services/firebase.service';
 
 FirebaseService.initialize();
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const store = useStore(
-    pageProps.initialReduxState ? JSON.parse(pageProps.initialReduxState) : InitialState,
+    pageProps.initialReduxState
+      ? resetTypeReduxState(JSON.parse(pageProps.initialReduxState))
+      : InitialState,
   );
 
   useEffect(() => {
