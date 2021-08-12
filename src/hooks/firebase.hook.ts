@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import * as AppActions from '~/redux/actions/app.action';
 import { sUser } from '~/redux/selectors/app.selector';
 import { useDispatch, useSelector } from 'react-redux';
-import FirebaseService from '~/services/firebase.service';
 // Misc
 import { AppRoutesEnum } from '~/enums/route.enum';
 
@@ -25,17 +24,4 @@ export const useFirebaseAuth = () => {
 
     return () => unsubscribe();
   }, []);
-
-  useEffect(() => {
-    let unsubscribe: firebase.Unsubscribe;
-
-    if (user) {
-      unsubscribe = FirebaseService.snapshotUserPreference({
-        uid: user.uid,
-        callback: (preference) => dispatch(AppActions.setUserPreference(preference)),
-      });
-    }
-
-    return () => unsubscribe && unsubscribe();
-  }, [user]);
 };

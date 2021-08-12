@@ -4,7 +4,7 @@ import React from 'react';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 // localization
-import { useTranslation, NamespaceEnum } from '~/i18n';
+import { useTranslation } from 'next-i18next';
 // type
 import { StyledComponentProps } from '~/types/material-ui';
 
@@ -14,7 +14,7 @@ interface Props extends StyledComponentProps<typeof styles> {}
 
 const SearchBox: React.FC<Props> = (props) => {
   const classes = useStyles(props);
-  const { t } = useTranslation(NamespaceEnum.COMMON);
+  const { t } = useTranslation('common');
 
   return (
     <div className={classes.root}>

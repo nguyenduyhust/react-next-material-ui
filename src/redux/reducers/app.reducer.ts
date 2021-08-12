@@ -9,11 +9,7 @@ export type State = {
 
 export const initialState: State = {
   isMobile: false,
-  profile: {
-    preference: {
-      language: 'en',
-    },
-  },
+  profile: {},
 };
 
 export const detectMobileReducer = AppActions.detectMobile.reducer<State>((state, action) => ({
@@ -27,18 +23,4 @@ export const setUserReducer = AppActions.setUser.reducer<State>((state, action) 
   },
 }));
 
-export const setUserPreferenceReducer = AppActions.setUserPreference.reducer<State>(
-  (state, action) => ({
-    profile: {
-      ...state.profile,
-      preference: action.payload,
-    },
-  }),
-);
-
-export const reducer = createTypeReducer(
-  initialState,
-  detectMobileReducer,
-  setUserReducer,
-  setUserPreferenceReducer,
-);
+export const reducer = createTypeReducer(initialState, detectMobileReducer, setUserReducer);

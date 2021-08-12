@@ -5,7 +5,7 @@ import { NextPage, InitialProps } from 'next';
 import Typography from '@material-ui/core/Typography';
 import Layout from '~/components/layout';
 // localizations
-import { useTranslation, NamespaceEnum } from '~/i18n';
+import { useTranslation } from 'next-i18next';
 // types
 import { StyledComponentProps } from '~/types/material-ui';
 // styles
@@ -27,13 +27,6 @@ const Invoices: NextPage<Props, InitialProps> = (props) => {
       </div>
     </Layout>
   );
-};
-
-Invoices.getInitialProps = async ({ req }) => {
-  return {
-    title: 'Invoices',
-    namespacesRequired: [],
-  };
 };
 
 export default Invoices;

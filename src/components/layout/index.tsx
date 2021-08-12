@@ -1,5 +1,5 @@
 // Libs
-import React, { useEffect } from 'react';
+import React from 'react';
 // Component
 import Header from './header';
 import SideBar from './side-bar';
@@ -7,7 +7,6 @@ import SideBar from './side-bar';
 import { StyledComponentProps } from '~/types/material-ui';
 // Hooks
 import { useFirebaseAuth } from '~/hooks/firebase.hook';
-import { useI18nSelectLanguage } from '~/hooks/i18n.hook';
 // selectors
 import { useSelector } from 'react-redux';
 import { sUser } from '~/redux/selectors/app.selector';
@@ -21,7 +20,6 @@ const Layout: React.FC<Props> = (props) => {
   const { children } = props;
   const classes = useStyles(props);
   useFirebaseAuth();
-  useI18nSelectLanguage();
   const user = useSelector(sUser);
 
   if (!user) {

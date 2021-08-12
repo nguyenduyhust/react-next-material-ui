@@ -78,12 +78,6 @@ class FirebaseService {
     }
 
     try {
-      await this.createUserPreference({ uid: user.uid, preference: { language: 'en' } });
-    } catch (error) {
-      // Don't need to handle
-    }
-
-    try {
       await user.updateProfile({
         displayName,
         photoURL: avatarUrl,
@@ -106,36 +100,6 @@ class FirebaseService {
     const avatarRef = userAssetsRef.child('avatar.png');
     await avatarRef.putString(image, 'data_url');
     return avatarRef.getDownloadURL();
-  }
-
-  public static snapshotUserPreference(args: SnapshotUserPreferenceArgs) {
-    const { uid, callback } = args;
-    const db = firebase.firestore();
-    return db
-      .collection('users')
-      .doc(uid)
-      .onSnapshot((doc) => {
-        if (doc && doc.exists) {
-          const data = doc.data();
-          data && callback(data.preference);
-        }
-      });
-  }
-
-  public static createUserPreference(args: CreateUserPreferenceArgs) {
-    const { uid, preference } = args;
-    const db = firebase.firestore();
-    return db.collection('users').doc(uid).set({
-      preference,
-    });
-  }
-
-  public static updateUserPreference(args: UpdateUserPreferenceArgs) {
-    const { uid, preference } = args;
-    const db = firebase.firestore();
-    return db.collection('users').doc(uid).update({
-      preference,
-    });
   }
 }
 

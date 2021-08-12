@@ -17,7 +17,7 @@ import { AppRoutesEnum } from '~/enums/route.enum';
 // type
 import { StyledComponentProps } from '~/types/material-ui';
 // localization
-import { useTranslation, NamespaceEnum } from '~/i18n';
+import { useTranslation } from 'next-i18next';
 // style
 import { useStyles, styles } from './style';
 
@@ -28,7 +28,7 @@ interface Props extends StyledComponentProps<typeof styles> {
 }
 
 const UserPopover: React.FC<Props> = (props) => {
-  const { t } = useTranslation(NamespaceEnum.COMMON);
+  const { t } = useTranslation('common');
   const { anchorEl, onClose, user } = props;
   const classes = useStyles(props);
   const router = useRouter();

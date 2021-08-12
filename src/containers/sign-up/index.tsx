@@ -20,7 +20,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { useFormik } from 'formik';
 import { FormValues, initialValues, validationSchema } from './form';
 // Localization
-import { useTranslation, NamespaceEnum } from '~/i18n';
+import { useTranslation } from 'next-i18next';
 // Action
 // Service
 import FirebaseService from '~/services/firebase.service';
@@ -174,13 +174,6 @@ const SignUp: NextPage<Props, InitialProps> = (props) => {
       </form>
     </AuthLayout>
   );
-};
-
-SignUp.getInitialProps = async ({ req }) => {
-  return {
-    title: 'Sign Up',
-    namespacesRequired: [NamespaceEnum.AUTH_PAGE],
-  };
 };
 
 export default SignUp;

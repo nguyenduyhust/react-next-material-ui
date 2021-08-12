@@ -15,7 +15,7 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 // enums
 import { AppRoutesEnum } from '~/enums/route.enum';
 // localization
-import { useTranslation, NamespaceEnum } from '~/i18n';
+import { useTranslation } from 'next-i18next';
 // types
 import { StyledComponentProps } from '~/types/material-ui';
 
@@ -26,7 +26,7 @@ interface Props extends StyledComponentProps<typeof styles> {}
 const Layout: React.FC<Props> = (props) => {
   const classes = useStyles(props);
   const router = useRouter();
-  const { t } = useTranslation(NamespaceEnum.COMMON);
+  const { t } = useTranslation('common');
 
   return (
     <Drawer variant="permanent" classes={{ root: classes.drawer, paper: classes.drawerPaper }}>

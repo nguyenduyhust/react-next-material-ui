@@ -5,7 +5,7 @@ import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import App, { AppProps, AppContext } from 'next/app';
-import { appWithTranslation } from '~/i18n';
+import { appWithTranslation } from 'next-i18next';
 import theme from '~/styles/theme';
 import { useStore } from '~/redux/with-redux';
 import { InitialState, resetTypeReduxState } from '~/redux/configure-store';

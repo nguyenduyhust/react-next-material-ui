@@ -15,12 +15,11 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import CreateIcon from '@material-ui/icons/Create';
 // form
 import { useFormik } from 'formik';
-import { FormValues, validationSchema, languageOptions } from './form';
+import { FormValues, validationSchema } from './form';
 // Localization
-import { useTranslation, NamespaceEnum } from '~/i18n';
+import { useTranslation } from 'next-i18next';
 // selectors
 import { useSelector } from 'react-redux';
-import { sUserPreference } from '~/redux/selectors/app.selector';
 // hooks
 import { useSnackbar } from 'notistack';
 // utils
@@ -41,21 +40,12 @@ interface Props extends StyledComponentProps<typeof styles> {
 const UserSettingDialog: React.FC<Props> = (props) => {
   const { open, onClose, user } = props;
   const classes = useStyles(props);
-  const { t } = useTranslation(NamespaceEnum.COMMON);
-  const { language } = useSelector(sUserPreference);
+  const { t } = useTranslation('common');
   const { enqueueSnackbar } = useSnackbar();
 
   const onSubmit = useCallback(
     async (values: FormValues) => {
       try {
-        if (values.language !== language) {
-          await FirebaseService.updateUserPreference({
-            uid: user.uid,
-            preference: {
-              language: values.language,
-            },
-          });
-        }
         if (values.displayName !== user.displayName) {
           await user.updateProfile({
             displayName: values.displayName,
@@ -65,13 +55,12 @@ const UserSettingDialog: React.FC<Props> = (props) => {
         enqueueSnackbar(error.message, { variant: 'error' });
       }
     },
-    [user, language],
+    [user],
   );
   const formik = useFormik<FormValues>({
     enableReinitialize: true,
     initialValues: {
       displayName: user.displayName || '',
-      language,
     },
     validationSchema,
     onSubmit,
@@ -163,29 +152,6 @@ const UserSettingDialog: React.FC<Props> = (props) => {
                 fullWidth
                 disabled
               />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                name="language"
-                label={t('language')}
-                select
-                value={formik.values.language}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                helperText={
-                  formik.errors.language && formik.touched.language && t(formik.errors.language)
-                }
-                error={Boolean(formik.errors.language) && formik.touched.language}
-                variant="outlined"
-                required
-                fullWidth
-              >
-                {languageOptions.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {t(option.label)}
-                  </MenuItem>
-                ))}
-              </TextField>
             </Grid>
           </Grid>
         </DialogContent>

@@ -12,7 +12,7 @@ import { useFirebaseAuth } from '~/hooks/firebase.hook';
 import { useSelector } from 'react-redux';
 import { sUser } from '~/redux/selectors/app.selector';
 // localization
-import { useTranslation, NamespaceEnum } from '~/i18n';
+import { useTranslation } from 'next-i18next';
 // type
 import { StyledComponentProps } from '~/types/material-ui';
 // style
@@ -21,7 +21,7 @@ import { useStyles, styles } from './style';
 interface Props extends StyledComponentProps<typeof styles> {}
 
 const Layout: React.FC<Props> = (props) => {
-  const { t } = useTranslation(NamespaceEnum.COMMON);
+  const { t } = useTranslation('common');
   const classes = useStyles(props);
   const [userPopoverAnchorEl, setUserPopoverAnchorEl] = React.useState<HTMLButtonElement | null>(
     null,

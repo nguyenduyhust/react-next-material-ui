@@ -18,7 +18,7 @@ import AuthLayout from '~/components/auth-layout';
 import { useFormik } from 'formik';
 import { FormValues, initialValues, validationSchema } from './form';
 // Localization
-import { useTranslation, NamespaceEnum } from '~/i18n';
+import { useTranslation } from 'next-i18next';
 // Action
 // Type
 import { StyledComponentProps } from '~/types/material-ui';
@@ -123,13 +123,6 @@ const SignIn: NextPage<Props, InitialProps> = (props) => {
       </form>
     </AuthLayout>
   );
-};
-
-SignIn.getInitialProps = async ({ req }) => {
-  return {
-    title: 'Sign In',
-    namespacesRequired: [NamespaceEnum.AUTH_PAGE],
-  };
 };
 
 export default SignIn;
