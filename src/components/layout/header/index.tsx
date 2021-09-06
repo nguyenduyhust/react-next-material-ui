@@ -12,7 +12,7 @@ import { useFirebaseAuth } from '~/hooks/firebase.hook';
 import { useSelector } from 'react-redux';
 import { sUser } from '~/redux/selectors/app.selector';
 // localization
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from '~/i18n';
 // type
 import { StyledComponentProps } from '~/types/material-ui';
 // style

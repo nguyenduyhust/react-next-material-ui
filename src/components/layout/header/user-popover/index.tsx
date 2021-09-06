@@ -17,7 +17,7 @@ import { AppRoutesEnum } from '~/enums/route.enum';
 // type
 import { StyledComponentProps } from '~/types/material-ui';
 // localization
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from '~/i18n';
 // style
 import { useStyles, styles } from './style';
 

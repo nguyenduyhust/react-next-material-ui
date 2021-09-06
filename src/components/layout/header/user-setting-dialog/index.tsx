@@ -17,7 +17,7 @@ import CreateIcon from '@material-ui/icons/Create';
 import { useFormik } from 'formik';
 import { FormValues, validationSchema } from './form';
 // Localization
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from '~/i18n';
 // selectors
 import { useSelector } from 'react-redux';
 // hooks

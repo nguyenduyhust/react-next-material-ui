@@ -2,6 +2,7 @@
 import React, { useCallback } from 'react';
 import firebase from 'firebase/app';
 import { useSnackbar } from 'notistack';
+import * as AppActions from '~/redux/actions/app.action';
 // Next
 import { NextPage, InitialProps } from 'next';
 import Link from 'next/link';
@@ -20,7 +21,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { useFormik } from 'formik';
 import { FormValues, initialValues, validationSchema } from './form';
 // Localization
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from '~/i18n';
 // Action
 // Service
 import FirebaseService from '~/services/firebase.service';
@@ -31,6 +32,7 @@ import { StyledComponentProps } from '~/types/material-ui';
 import { useStyles, styles } from './style';
 // Misc
 import { AppRoutesEnum } from '~/enums/route.enum';
+import { initializeStore } from '~/redux/with-redux';
 
 interface Props extends InitialProps, StyledComponentProps<typeof styles> {}
 
@@ -174,6 +176,19 @@ const SignUp: NextPage<Props, InitialProps> = (props) => {
       </form>
     </AuthLayout>
   );
+};
+
+SignUp.getInitialProps = async ({ req }) => {
+  const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
+  const reduxStore = initializeStore();
+  const { dispatch } = reduxStore;
+  dispatch(AppActions.detectMobile(userAgent));
+
+  return {
+    title: 'Sign up',
+    namespacesRequired: ['auth-page'],
+    initialReduxState: JSON.stringify(reduxStore.getState()),
+  };
 };
 
 export default SignUp;

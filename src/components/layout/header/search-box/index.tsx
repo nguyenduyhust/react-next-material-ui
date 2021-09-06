@@ -4,7 +4,7 @@ import React from 'react';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 // localization
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from '~/i18n';
 // type
 import { StyledComponentProps } from '~/types/material-ui';
 

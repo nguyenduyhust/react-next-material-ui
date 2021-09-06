@@ -15,7 +15,7 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 // enums
 import { AppRoutesEnum } from '~/enums/route.enum';
 // localization
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from '~/i18n';
 // types
 import { StyledComponentProps } from '~/types/material-ui';
 
